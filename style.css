@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap");
+
+:root {
+    /* sparar färg, text-font och hovereffekt som jag återanvänder */
+    --textfont: "Cormorant Garamond", serif;
+
+    --mörkblå: #092c44cc;
+    --beige: #cec5b6;
+
+    --hover-effect: scale(1.08);
+    --hover-effect2: drop-shadow(0 0 8px rgba(247, 239, 239, 0.808));
+
+    --box-padding: 2rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Så sidan scrollar istället för hoppar till länk på samma sida */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* HOVEREFFEKT PÅ ALLA LÄNKAR */
+
+/* börjar med att ändra alla a taggar till inline-block så det ska funka med effekt */
+a {
+    display: inline-block;
+    transition:
+        transform 0.2s ease-in-out,
+        filter 0.2s ease-in-out;
+}
+
+/* aktiverar effekten när jag hovrar över a taggar och bokningsknappen */
+a:hover,
+.skicka-bokning:hover {
+    transform: var(--hover-effect);
+    filter: var(--hover-effect2);
+}
+
+/* --- BAKGRUNDSBILD OCH ÖVERGRIPANDE FONT --- */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    font-family: var(--textfont);
+
+    background-image: 
+    /* Tonar ner ljuset på bakgrunden */
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("Images/unnamed\ \(2\).webp");
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* --- NAVBAR OCH LOGO --- */
+
+header {
+    position: fixed;
+    z-index: 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 3.75rem;
+    padding: 0 20px;
+
+    background-color: var(--mörkblå);
+    box-shadow: 0 4px 20px black;
+}
+
+.headerlogo img {
+    height: 2rem;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+
+    list-style: none;
+}
+
+.navbar a {
+    color: var(--beige);
+    font-size: 1.1rem;
+
+    text-decoration: none;
+}
+
+/* --- KONTAKT ANIMATION --- */
+
+#kontakt-sektion:target .footer-text-grupp {
+    animation: text-puff 1.8s ease-in-out 0.5s;
+}
+
+@keyframes text-puff {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- HEM --- */
+
+.hem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hembildochtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+
+    text-align: center;
+
+    width: 80%;
+
+    padding: var(--box-padding);
+
+    background-color: #092c444d;
+    backdrop-filter: blur(5px);
+
+    border-radius: 50px;
+    box-shadow: 0px 4px 20px black;
+}
+
+.hem img {
+    width: 24rem;
+    filter: drop-shadow(5px 5px 2px black);
+}
+
+.hemtext {
+    margin-top: 20px;
+
+    color: var(--beige);
+    font-size: 1rem;
+    font-weight: 500;
+
+    text-shadow: 2px 2px 1px black;
+}
+
+/* --- MENY --- */
+
+.meny {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 8vh 0;
+}
+
+.menybox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    min-height: 150px;
+
+    padding: var(--box-padding);
+
+    background-color: #c2b8a898;
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    box-shadow: 0px 4px 20px black;
+}
+
+/* .menybox h2 {
+    padding-top: 3rem;
+} */
+
+.menybox h2,
+.menybox p {
+    margin-bottom: 5px;
+}
+
+.menybox h3 {
+    padding: 15px 0 0 0;
+}
+
+.menybox h4 {
+    margin-bottom: 6px;
+
+    padding: 5px;
+
+    color: var(--beige);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.671);
+
+    background-color: #092c44b6;
+    border-radius: 5px;
+}
+
+.rätt-info .tillval-text {
+    display: inline-block;
+
+    margin-top: 6px;
+}
+
+.frukost-rätt,
+.lunch-rätt,
+.middag-rätt {
+    display: grid;
+    grid-template-columns: 35vw auto 120px;
+    align-items: center;
+    gap: 20px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px dashed black;
+}
+
+.frukost-rätt img,
+.lunch-rätt img,
+.middag-rätt img {
+    object-fit: cover;
+
+    width: 100%;
+    height: 100px;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.473);
+}
+
+.menybox > p,
+.tillval-text {
+    font-style: italic;
+}
+
+/* OM OSS */
+
+.om-oss {
+    display: flex;
+    justify-content: center;
+
+    /* vill ha "om oss" och footer direkt i samma bild, däför - 3.75rem (footerns höjd) */
+
+    min-height: calc(100vh - 3.75rem);
+
+    padding-top: 9vh;
+    padding-bottom: 4vh;
+}
+
+.om-oss-text-bild {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    width: 80%;
+
+    padding: var(--box-padding);
+
+    background-color: #092c44a1;
+    backdrop-filter: blur(5px);
+
+    border-radius: 50px;
+    box-shadow: 0px 4px 20px black;
+}
+
+.om-oss-restaurangbild img {
+    width: 90%;
+    display: block;
+    margin: auto;
+
+    border-radius: 25px;
+    box-shadow: 0px 4px 20px black;
+}
+
+.om-oss-text {
+    text-align: center;
+
+    width: 100%;
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--beige);
+
+    border-radius: 10px;
+}
+
+.om-oss-text h2 {
+    text-align: center;
+    text-shadow: 2px 2px 1px black;
+}
+
+/* BOKA BORD */
+
+.bokningssida {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 9vh;
+    padding-bottom: 4vh;
+
+    min-height: calc(100vh - 3.75rem);
+}
+
+.bokningsbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    height: 35rem;
+
+    padding: var(--box-padding);
+
+    background-color: #092c444d;
+    backdrop-filter: blur(5px);
+
+    border-radius: 50px;
+    box-shadow: 0px 4px 20px black;
+}
+
+.bokningsbox-innehåll {
+    position: absolute;
+}
+
+.bokningsbox-innehåll h2,
+.bokningsbox-innehåll p {
+    text-align: center;
+
+    font-weight: 500;
+    color: var(--beige);
+    text-shadow: 2px 2px 1px black;
+}
+
+.formulär label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    font-size: large;
+}
+
+.formulär {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    color: var(--beige);
+    font-weight: 500;
+    text-shadow: 2px 2px 1px black;
+}
+
+.formulär textarea,
+.formulär input {
+    text-align: center;
+
+    font-family: var(--textfont);
+    color: black;
+
+    resize: none;
+    overflow-y: auto;
+}
+
+.formulär textarea {
+    font-size: 0.9rem;
+}
+
+.skicka-bokning {
+    padding: 3px;
+
+    font-family: var(--textfont);
+
+    background-color: white;
+    border-radius: 5px;
+
+    transition:
+        transform 0.2s ease-in-out,
+        filter 0.2s ease-in-out;
+}
+
+.formulär input::placeholder,
+.formulär textarea::placeholder {
+    color: black;
+}
+
+/* --- FOOTER --- */
+
+footer {
+    width: 100%;
+}
+
+.footer-innehåll {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 3.75rem;
+    width: 100%;
+
+    background-color: var(--mörkblå);
+    box-shadow: 0px -4px 20px black;
+}
+
+.footer-instagramlåda {
+    position: absolute;
+
+    left: 1rem;
+}
+
+.footer-instagramlåda a img {
+    display: block;
+
+    width: 48px;
+    height: 48px;
+
+    filter: saturate(75%);
+}
+
+.footer-text-grupp {
+    z-index: 1;
+
+    display: flex;
+    gap: 2rem;
+
+    /* för att undvika pyttelitet hopp till vänster vid animation */
+    will-change: transform;
+}
+
+.footer-info {
+    text-align: center;
+
+    color: var(--beige);
+    text-decoration: none;
+}
+
+.footer-info h3 {
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.footer-info a {
+    text-decoration: none;
+    font-style: var(--textfont);
+    color: var(--beige);
+}
+
+/* --- Mobilanpassning (Iphone SE 14.6) --- */
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    /* NAV */
+
+    .headerlogo img {
+        height: 1.6rem;
+    }
+
+    .navbar {
+        gap: 8px;
+    }
+
+    /* HEM */
+
+    .hem img {
+        width: 15rem;
+    }
+
+    .hemtext {
+        font-size: 1.3rem;
+    }
+
+    .hembildochtext,
+    .menybox {
+        width: 95%;
+    }
+
+    /* MENY */
+
+    .menybox {
+        margin-top: 1rem;
+
+        /* Fontsize i % här är ju väldigt smidigt. :) */
+        font-size: 115%;
+    }
+
+    .frukost-rätt,
+    .lunch-rätt,
+    .middag-rätt {
+        grid-template-columns: 39vw auto 120px;
+    }
+
+    /* OM OSS */
+
+    .om-oss {
+        padding-top: 12vh;
+        padding-bottom: 4vh;
+    }
+
+    .om-oss-text-bild {
+        width: 80%;
+    }
+
+    .om-oss-text {
+        font-size: 115%;
+    }
+
+    /* BOKNING */
+
+    .bokningssida {
+        padding-top: 12vh;
+        padding-bottom: 4vh;
+    }
+
+    .bokningsbox {
+        width: 80%;
+    }
+
+    /* FOOTER */
+
+    .footer-innehåll {
+        height: 5rem;
+
+        padding: 1rem;
+    }
+
+    .footer-text-grupp {
+        gap: 1rem;
+    }
+
+    .footer-instagramlåda {
+        left: 0.5rem;
+        top: -1.5rem;
+    }
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ruths Malmö | Boka bord</title>
+        <meta
+            name="keywords"
+            content="Boka bord Ruths, restaurang, bageri, Malmö, frukost, lunch, middag"
+        />
+        <meta name="description" content="Boka bord på Ruths Malmö" />
+
+        <link rel="icon" href="/Images/Ikoner/favicon-32x32.png" />
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Navigering -->
+
+        <header>
+            <div class="headerlogo">
+                <a href="index.html">
+                    <img src="/Images/Ikoner/logo_57deb727.svg" alt="logo" />
+                </a>
+            </div>
+
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Meny</a></li>
+                    <li><a href="omoss.html">Om oss</a></li>
+                    <li><a href="#kontakt-sektion">Kontakt</a></li>
+                    <li><a href="bokabord.html">Boka bord</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Bokning -->
+
+        <main>
+            <section class="bokningssida">
+                <div class="bokningsbox">
+                    <div class="bokningsbox-innehåll">
+                        <h2>Boka bord</h2>
+                        <br />
+                        <p>Vänligen fyll i dina uppgifter nedan:</p>
+
+                        <br />
+                        <form class="formulär" action="index.html">
+                            <div class="form-namn">
+                                <label for="boka-namn">Namn:</label>
+                                <br />
+                                <input
+                                    type="text"
+                                    id="boka-namn"
+                                    required
+                                    placeholder="Ditt fullständiga namn"
+                                />
+                            </div>
+
+                            <div class="form-datum">
+                                <label for="boka-datum">Datum:</label>
+                                <br />
+                                <input type="date" id="boka-datum" required />
+                            </div>
+
+                            <div class="form-tid">
+                                <label for="boka-tid">Tid:</label>
+                                <br />
+                                <input type="time" id="boka-tid" required />
+                            </div>
+
+                            <div class="form-önskemål">
+                                <label for="boka-önskemål"
+                                    >Övriga önskemål:</label
+                                >
+                                <br />
+                                <textarea
+                                    id="boka-önskemål"
+                                    rows="3"
+                                    placeholder="Allergier, barnstol eller andra önskemål..."
+                                ></textarea>
+                            </div>
+                            <br />
+
+                            <button type="submit" class="skicka-bokning">
+                                Skicka bokningsförfrågan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+
+        <footer id="kontakt-sektion">
+            <div class="footer-innehåll">
+                <div class="footer-instagramlåda">
+                    <a
+                        href="https://www.instagram.com/ruthsmalmo/"
+                        target="_blank"
+                        ><img
+                            src="/Images/Ikoner/icons8-instagram-100.png"
+                            alt="instagram"
+                    /></a>
+                </div>
+
+                <div class="footer-text-grupp">
+                    <div class="footer-info">
+                        <h3>Adress:</h3>
+                        <a
+                            href="https://www.google.com/maps/place/M%C3%A4ster+Johansgatan+11,+211+21+Malm%C3%B6/@55.6061256,12.9951222,17z/data=!3m1!4b1!4m6!3m5!1s0x4653a3fe88e7e821:0x9d262c75d1f1116c!8m2!3d55.6061256!4d12.9976971!16s%2Fg%2F11c43tkxk2?entry=ttu&g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            >Mäster Johansgatan 11, Malmö</a
+                        >
+                    </div>
+
+                    <div class="footer-info">
+                        <h3>Telefon:</h3>
+                        <a href="tel:+4640121318">+46 40 12 13 18</a>
+                    </div>
+
+                    <div class="footer-info">
+                        <h3>Mail:</h3>
+                        <a href="mailto:info@ruthsmalmo.se"
+                            >info@ruthsmalmo.se</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
